@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    image:  g-krypta/webkrypta:latest
+    command:
+      - gunicorn
+      - wsgi:app
+      - --bind=0.0.0.0:5000
+      - --workers=1
+      - --timeout=180
+    environment:
+      - SQLALCHEMY_DATABASE_URI=sqlite:////app/database/app.db
+    volumes:
+      - db_data:/app/database
+    networks:
+      - traefik_public
+volumes:
+  db_data:
+networks:
+  traefik_public:
+    external: true
