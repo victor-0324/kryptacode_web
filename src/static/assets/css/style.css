@@ -193,7 +193,7 @@
         .nav-logo-icon {
             width: 36px;
             height: 36px;
-            background: var(--blue);
+            background: #e0f0fd;
             border-radius: 8px;
             display: flex;
             align-items: center;
