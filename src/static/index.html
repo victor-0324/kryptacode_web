@@ -88,37 +88,111 @@
                     </div>
                 </div>
 
-                <div class="hero-code fade-in" style="transition-delay:.2s">
-                    <div class="hero-code-window">
-                        <div class="window-bar">
-                            <div class="dot red"></div>
-                            <div class="dot yellow"></div>
-                            <div class="dot green"></div>
-                            <span class="window-title">krypta-bot.js</span>
-                        </div>
-                        <div class="window-body">
-                            <div class="code-snippet"><span class="cm">// Krypta Code — IA de Atendimento</span>
-                                <span class="kw">import</span> { KryptaBot } <span class="kw">from</span> <span
-                                    class="str">"@krypta/core"</span>;
+                <div class="hero-code fade-in visible" style="transition-delay:.2s">
+                    <div class="hero-code-window" style="background:transparent;border:none;box-shadow:none;padding:0">
 
-                                <span class="kw">const</span> bot = <span class="kw">new</span> <span
-                                    class="fn">KryptaBot</span>({
-                                canal: <span class="str">"whatsapp"</span>,
-                                horario: <span class="str">"24/7"</span>,
-                                ia: <span class="str">true</span>,
-                                });
+                        <!-- PHONE MOCKUP -->
+                        <div
+                            style="width:300px;margin:0 auto;background:#0a1a1f;border-radius:36px;padding:14px 10px 20px;box-shadow:0 24px 60px rgba(0,0,0,.5);border:1.5px solid rgba(255,255,255,.08);font-family:var(--font-body)">
 
-                                bot.<span class="fn">onMensagem</span>(<span class="kw">async</span> (cliente) => {
-                                <span class="kw">const</span> resposta = <span class="kw">await</span> bot
-                                .<span class="fn">entender</span>(cliente.texto)
-                                .<span class="fn">responder</span>();
+                            <!-- NOTCH -->
+                            <div
+                                style="width:90px;height:22px;background:#000;border-radius:0 0 14px 14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center">
+                                <div
+                                    style="width:8px;height:8px;border-radius:50%;background:#1a1a1a;border:1.5px solid #333">
+                                </div>
+                            </div>
 
-                                <span class="kw">return</span> resposta; <span class="cm">// ✓ instantâneo</span>
-                                });
+                            <!-- HEADER -->
+                            <div
+                                style="display:flex;align-items:center;gap:10px;background:#0f2830;border-radius:14px;padding:10px 14px;margin-bottom:8px">
+                                <div
+                                    style="width:36px;height:36px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">
+                                    🤖</div>
+                                <div style="flex:1">
+                                    <div style="font-size:13px;font-weight:600;color:#fff">G4 Assistente</div>
+                                    <div style="font-size:10px;color:#4ade80;display:flex;align-items:center;gap:4px">
+                                        <div
+                                            style="width:6px;height:6px;border-radius:50%;background:#4ade80;animation:chatpulse 2s infinite">
+                                        </div> online agora
+                                    </div>
+                                </div>
+                                <i class="fab fa-whatsapp" style="color:#25D366;font-size:18px"></i>
+                            </div>
 
-                                bot.<span class="fn">iniciar</span>(); <span class="cm">// 🚀 ao vivo</span>
+                            <!-- MENSAGENS -->
+                            <div id="chatBody"
+                                style="height:340px;overflow-y:auto;scroll-behavior:smooth;padding:8px 6px;display:flex;flex-direction:column;gap:8px">
+
+                                <div class="cmsg cbot" id="cm1">
+                                    <div class="cbubble">Olá! 👋 Bem-vindo à <strong>G4Mobile</strong>!<br>Como posso te
+                                        ajudar hoje? 😊</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct1">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cuser" id="cm2">
+                                    <div class="cbubble">Oi! Quero uma corrida pra UPA 🏥</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct2">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cbot" id="cm3">
+                                    <div class="cbubble">Perfeito! 📍 Me diz seu endereço de embarque e já calculo tudo
+                                        pra você! 🚗</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct3">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cuser" id="cm4">
+                                    <div class="cbubble">Rua das Flores, 42 — Centro 📌</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct4">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cbot" id="cm5">
+                                    <div class="cbubble">✅ Encontrei! Sua cotação:<br><br>📍 <strong>Centro →
+                                            UPA</strong><br>🛣️ 3,2 km · ⏱️ ~9 min<br>💰 Valor: <span
+                                            style="background:rgba(0,201,215,.15);color:var(--cyan);border-radius:6px;padding:1px 6px;font-size:11px;font-weight:600">R$
+                                            14,00</span><br><br>Confirmo o motorista? 🙌</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct5">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cuser" id="cm6">
+                                    <div class="cbubble">Sim, pode confirmar! 👍</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+                                <div class="ctyping" id="ct6">
+                                    <div class="ctbubble"><span></span><span></span><span></span></div>
+                                </div>
+                                <div class="cmsg cbot" id="cm7">
+                                    <div class="cbubble">🎉 Motorista confirmado!<br>Chegada em <strong>4
+                                            minutos</strong> 🚗💨<br>Boa viagem! 😄</div>
+                                    <div class="cmtime">agora</div>
+                                </div>
+
+                            </div>
+
+                            <!-- INPUT BAR -->
+                            <div
+                                style="background:#0f2830;border-radius:20px;padding:8px 10px;margin-top:8px;display:flex;align-items:center;gap:8px">
+                                <i class="fas fa-smile" style="color:rgba(255,255,255,.25);font-size:16px"></i>
+                                <div
+                                    style="flex:1;font-size:12px;color:rgba(255,255,255,.3);font-family:var(--font-body)">
+                                    Digite uma mensagem...</div>
+                                <div
+                                    style="width:28px;height:28px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;font-size:12px;color:#012227">
+                                    <i class="fas fa-paper-plane"></i>
+                                </div>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -423,13 +497,43 @@
             </div>
         </div>
     </footer>
+    <script>
+        (function () {
+            const csteps = [
+                { show: 'cm1', delay: 300 }, { show: 'ct1', delay: 900 },
+                { hide: 'ct1', show: 'cm2', delay: 1700 }, { show: 'ct2', delay: 2300 },
+                { hide: 'ct2', show: 'cm3', delay: 3100 }, { show: 'ct3', delay: 3800 },
+                { hide: 'ct3', show: 'cm4', delay: 4600 }, { show: 'ct4', delay: 5200 },
+                { hide: 'ct4', show: 'cm5', delay: 6200 }, { show: 'ct5', delay: 7000 },
+                { hide: 'ct5', show: 'cm6', delay: 7800 }, { show: 'ct6', delay: 8400 },
+                { hide: 'ct6', show: 'cm7', delay: 9300 },
+            ];
+            function runChat() {
+                document.querySelectorAll('.cmsg,.ctyping').forEach(el => el.classList.remove('show'));
+                const body = document.getElementById('chatBody');
+                csteps.forEach(s => {
+                    setTimeout(() => {
+                        if (s.hide) document.getElementById(s.hide).classList.remove('show');
+                        if (s.show) {
+                            const el = document.getElementById(s.show);
+                            el.classList.add('show');
+                            if (el.classList.contains('cmsg')) body.scrollTop = body.scrollHeight;
+                        }
+                    }, s.delay);
+                });
+                setTimeout(runChat, 13000);
+            }
+            runChat();
+        })();
 
+    </script>
     <script>
         // Fade-in on scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
         }, { threshold: 0.12 });
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
     </script>
 </body>
 
