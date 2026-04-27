@@ -9,8 +9,6 @@ services:
       - --bind=0.0.0.0:5000
       - --workers=1
       - --timeout=180
-    env_file:
-      - .env
     volumes:
       - db_data:/app/database
     networks:
