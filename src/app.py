@@ -3,6 +3,7 @@ from flask import Flask
 from .database.models.user import User
 from .database.base import Base
 
+
 def init_app() -> Flask:
     app = Flask(__name__)
 
@@ -24,7 +25,7 @@ def init_app() -> Flask:
     app.config.from_object(TestingConfig)
 
     # Configuração do banco de dados
-    from .database.de_connection import DBConnectionHendler
+    from .database.db_connector import DBConnectionHendler
 
     db_connection = DBConnectionHendler()
     engine = db_connection.get_engine()
@@ -32,10 +33,12 @@ def init_app() -> Flask:
     with app.app_context():
         from src.blueprints import (
             kryptacode_bp,
+            bot_evo_bp
 
         )
         # Registrando os blueprints
         app.register_blueprint(kryptacode_bp)
+        app.register_blueprint(bot_evo_bp)
 
         # Criando tabelas no banco de dados
         Base.metadata.create_all(engine)

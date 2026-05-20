@@ -26,3 +26,4 @@ class User(Base):
             'numero': self.numero,
             'observacao': self.observacao
         }
+

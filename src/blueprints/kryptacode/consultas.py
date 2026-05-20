@@ -1,5 +1,8 @@
 from sqlalchemy.exc import IntegrityError
-from src.database.de_connection import db_connector
+from ...database.db_connector import db_connector
+
+
+
 class ConsultaDados:
 
     @classmethod
